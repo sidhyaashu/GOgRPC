@@ -71,3 +71,39 @@ gRPC (short for **g**eneral-purpose **R**emote **P**rocedure **C**all) is a mode
 | Performance     | Faster, compact              | Slower, larger payloads     |
 | Streaming       | Yes (bidirectional)          | Limited                     |
 | Browser Support | Requires gRPC-Web            | Native                      |
+
+
+```plaintext
++-------------------+            +-------------------+
+|   gRPC Client     |            |   gRPC Server     |
+| (Frontend/Caller) |            | (Order Service)   |
++-------------------+            +-------------------+
+          |                                |
+          |       1. gRPC Request          |
+          +------------------------------->|
+          |                                |
+          |                                |
+          |       2. Process Request       |
+          |  (Business Logic & Validation) |
+          |                                |
+          |                                |
+          |       3. Call Other Services   |
+          |    (e.g., Customer, Inventory) |
+          |                                |
+          +-------------------------------->
+          |                                |
+          |     4. Process Dependencies    |
+          | (Fetch Data / Update Inventory)|
+          |                                |
+          | <------------------------------+
+          |                                |
+          |      5. Send Response          |
+          | (Acknowledgement/Order Details)|
+          |                                |
+          +<-------------------------------+
+          |                                |
++-------------------+            +-------------------+
+| Display Result    |            | Database / Other  |
+| to Client         |            | Dependent APIs    |
++-------------------+            +-------------------+
+```
