@@ -106,4 +106,14 @@ gRPC (short for **g**eneral-purpose **R**emote **P**rocedure **C**all) is a mode
 | Display Result    |            | Database / Other  |
 | to Client         |            | Dependent APIs    |
 +-------------------+            +-------------------+
+
+
+
++---------------+            +----------------+           +----------------+
+|               | Request    |                | Request   |                |
+|    Order      +----------> |    Common      +---------> |    Kitchen      |
+|    Service    | Response   |    Service     | Response  |    Service      |
+|               |            |                |           |                |
++---------------+            +----------------+           +----------------+
+
 ```
