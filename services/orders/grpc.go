@@ -3,6 +3,9 @@ package main
 import (
 	"log"
 	"net"
+
+	handler "github.com/sidhyaashu/gogrpc/services/orders/handler/orders"
+	"github.com/sidhyaashu/gogrpc/services/orders/service"
 	"google.golang.org/grpc"
 )
 
@@ -17,12 +20,15 @@ func NewGRPCServer(addr string) *gRPCServer {
 func (s *gRPCServer) Run() error {
 	lis, err := net.Listen("tcp", s.addr)
 	if err != nil {
-		log.Fatalf("Failed to listen: %v", err)
+		log.Fatalf("failed to listen: %v", err)
 	}
 
 	grpcServer := grpc.NewServer()
-	
-	//Register Our grpc Service
+
+	// register our grpc services
+	orderService := service.NewOrderService()
+	handler.NewGrpcOrdersService(grpcServer, orderService)
+
 	log.Println("Starting gRPC server on", s.addr)
 
 	return grpcServer.Serve(lis)
