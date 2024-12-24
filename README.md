@@ -1,6 +1,4 @@
 # GOgRPC
-Learn how to build scalable micro-services in Golang with gRPC by building a practical real-world production project (order management system).
-
 
 gRPC (short for **g**eneral-purpose **R**emote **P**rocedure **C**all) is a modern, high-performance, open-source framework developed by Google for enabling efficient communication between distributed systems and services. It uses **protocol buffers (protobuf)** as its interface definition language and serialization mechanism, making it both fast and compact.
 
@@ -46,22 +44,6 @@ gRPC (short for **g**eneral-purpose **R**emote **P**rocedure **C**all) is a mode
 
 - **Inter-Platform Systems**:
   Allows components written in different languages to communicate effectively.
-
-### Example Workflow:
-1. Define the service in a `.proto` file.
-2. Generate code for client and server stubs using gRPC's tools.
-3. Implement the server and client logic.
-4. Deploy and use the gRPC service.
-
-### Advantages:
-- High performance and low latency.
-- Cross-platform and cross-language support.
-- Compact serialized data format.
-- Rich feature set for modern distributed systems.
-
-### Disadvantages:
-- Slightly steeper learning curve due to its reliance on protocol buffers and the need for generated code.
-- Limited native support for browsers (requires gRPC-Web).
 
 ### Comparison with REST:
 | Feature         | gRPC                         | REST                        |
